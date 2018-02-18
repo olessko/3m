@@ -1,0 +1,27 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li {% if 'sites' in request.get_full_path %} class="active"{% endif %} role="presentation" >
+                        <a href="/">Sites</a>
+                </li>
+                <li {% if 'summary' in request.get_full_path %} class="active"{% endif %} role="presentation" >
+                        <a href="/summary">Summary</a>
+                </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+      </nav>
+{% block content %}
+{% endblock %}

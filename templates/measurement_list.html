@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% if measurement_list %}
+<div class="container">
+<h1>Site details - {{site.name}}</h1>
+<table class="table"><thead> <tr><td><strong>Date</strong></td><td><strong>A Value</strong></td><td><strong>B Value</strong></td></tr></thead>
+{% for measurement in measurement_list %}
+<tr><td>{{measurement.date}}</td><td>{{measurement.a}}</td><td>{{measurement.b}}</td></tr>
+{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}

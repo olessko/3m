@@ -1,0 +1,16 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% if sum_list %}
+<div class="container">
+<h1>Summary</h1>
+<a href="/summary"><button type="button" class="btn btn-primary {% if 'average' not in request.get_full_path %} active {% endif %} ">Sum</button></a>
+<a href="/summary-average"><button type="button" class="btn btn-primary {% if 'average' in request.get_full_path %} active {% endif %}">Average</button></a>
+<table class="table"><thead> <tr><td><strong>Date</strong></td><td><strong>A Value</strong></td><td><strong>B Value</strong></td></tr></thead>
+{% for site in sum_list %}
+<tr><td>{{site.name}}</td><td>{{site.value_a}}</td><td>{{site.value_b}}</td></tr>
+{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}
